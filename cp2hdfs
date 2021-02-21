@@ -16,9 +16,9 @@ else
   echo "###### COPY TO CONTAINER ######"
   docker cp $1 hsz_spark-master_1:/tmp/
   echo "###### CREATE DIRECTORY UPLOAD  ######"
-  docker exec hsz_spark-master_1 hdfs dfs -mkdir /upload
+  docker exec hsz_spark-master_1 hdfs dfs -mkdir /home/upload
   echo "###### UPLOAD FILE TO HDFS FILESTORAGE ######"
-  docker exec hsz_spark-master_1 hdfs dfs -put -f /tmp/$file /upload/
+  docker exec hsz_spark-master_1 hdfs dfs -put -f /tmp/$file /home/upload/
   echo "###### CLEANUP FILE IN CONTAINER ######"
   docker exec hsz_spark-master_1 rm -f /tmp/$file
   echo "###### DONE ######"
